@@ -1,0 +1,29 @@
+Mario, Fireball, Cape, Super Jump Punch, F.L.U.D.D.
+Donkey Kong, Giant Punch, Headbutt, Spinning Kong, Hand Slap
+Link, Bow and Arrows, Boomerang, Spin Attack, Remote Bomb
+Samus, Charge Shot, Missile, Screw Attack, Bomb
+Dark Samus, Charge Shot, Missile, Screw Attack, Bomb
+Yoshi, Egg Lay, Egg Roll, Egg Throw, Yoshi Bomb
+Kirby, Inhale, Hammer Flip, Final Cutter, Stone
+Fox, Blaster, Fox Illusion, Fire Fox, Reflector
+Pikachu, Thunder Jolt, Skull Bash, Quick Attack, Thunder
+Luigi, Fireball, Green Missle, Super Jump Punch, Luigi Cyclone
+Captain Falcon, Falcon Punch, Raptor Boost, Falcon Dive, Falcon Kick
+Jigglypuff, Rollout, Pound, Sing, Rest
+Peach, Toad, Peach Bomber, Peach Parasol, Vegetable
+Daisy, Toad, Daisy Bomber, Daisy Parasol, Vegetable
+Bowser, Fire Breath, Flying Slam, Whirling Fortress, Bowser Bomb
+Ice Climbers, Ice Shot, Squall Hammer, Belay, Blizzard
+Sheik, Needle Storm, Burst Grenade, Vanish, Bouncing Fish
+Zelda, Nayru's Love, Din's Fire, Farore's Wind, Phantom Slash
+Dr. Mario, Megavitamins, Super Sheet, Super Jump Punch, Dr. Tornado
+Pichu, Thunder Jolt, Skull Bash, Agility, Thunder
+Falco, Blaster, Falco Phantasm, Fire Bird, Reflector
+Marth, Shield Breaker, Dancing Blade, Dolphin Slash, Counter
+Lucina, Shield Breaker, Dancing Blade, Dolphin Slash, Counter
+Young Link, Fire Arrow, Boomerang, Spin Attack, Bomb
+Ganondorf, Warlock Punch, Flame Chock, Dark Dive, Wizard's Foot
+Mewtwo, Shadow Ball, Confusion, Teleport, Disable
+Roy, Flare Blade, Double-Edge Dance, Blazer, Counter
+Chrom, Flare Blade, Double-Edge Dance, Soaring Slash, Counter
+Mr. Game & Watch, Chef, Judge, Fire, Oil Panic
