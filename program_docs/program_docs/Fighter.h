@@ -58,7 +58,7 @@ bool operator> (const Fighter &f1, const Fighter &f2) {
 }
 
 std::ostream & operator << (std::ostream &out, const Fighter &f) {
-	out << f.name << std::endl;
+	out << "#" << f.rosterNumber << " - " << f.name << std::endl;
 	out << f.neutralSpecial << std::endl;
 	out << f.upSpecial << std::endl;
 	out << f.sideSpecial << std::endl;
@@ -67,6 +67,6 @@ std::ostream & operator << (std::ostream &out, const Fighter &f) {
 }
 
 std::istream & operator >> (std::istream &in, Fighter &f) {
-	in >> f.name >> f.neutralSpecial >> f.upSpecial >> f.sideSpecial >> f.downSpecial;
+	in >> f.rosterNumber >> f.name >> f.neutralSpecial >> f.sideSpecial >> f.upSpecial >> f.downSpecial;
 	return in;
 }

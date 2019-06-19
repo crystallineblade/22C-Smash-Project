@@ -49,7 +49,6 @@ int HashMapTable::HashFunc(Fighter data) {
 
 void HashMapTable::Insert(Fighter data) {
 	int h = HashFunc(data);
-	int j = 0;
 	if (Htable[h].data.name == "")
 	{
 		Htable[h].data = data;
@@ -57,42 +56,33 @@ void HashMapTable::Insert(Fighter data) {
 	}
 	else if (Htable[h].data.name != "")
 	{
-		while (Htable[h].data.name != "" && h < T_S)
+		collisions++;
+		HashTableEntry** node = new HashTableEntry*;
+		node = &(Htable[h].next);
+		while (Htable[h].next != NULL)
 		{
-			collisions++;
-			j++;
-			h = (h + j) % T_S;
+			node = &((*node)->next);
 		}
-		if (h < T_S)
-		{
-			Htable[h].data = data;
-			Htable[h].key = h;
-		}
+		HashTableEntry newNode(data, h);
+		(*node)->next = &newNode;
 	}
 }
 int HashMapTable::SearchKey(Fighter data) {
 	int h = HashFunc(data);
 	int j = 0;
-	if (Htable[h].data == data)
-	{
-		std::cout << Htable[h].data << std::endl;
-	}
-	else
-	{
-		while (Htable[h].data != data && j < T_S)
-		{
-			j++;
-			h = (h + j) % T_S;
-		}
-		if (j < T_S&&Htable[h].data == data)
-		{
+	HashTableEntry* node = new HashTableEntry;
+	node = &Htable[h];
+	while (node != NULL && (*node).data.name != "") {
+		if ((*node).data == data) {
+			std::cout << "Data found: " << std::endl;
 			std::cout << Htable[h].data << std::endl;
+			return h;
 		}
-		else
-		{
-			std::cout << "Invalid Data" << std::endl;
+		else {
+			node = (*node).next;
 		}
 	}
+	std::cout << "Invalid Data" << std::endl;
 	return 0;
 }
 HashMapTable::~HashMapTable() {

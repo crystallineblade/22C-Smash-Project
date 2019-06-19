@@ -33,7 +33,7 @@ void importDataFromFile(string fileName) {
 		getline(characterFile, neutralSpecial, ',');
 		getline(characterFile, sideSpecial, ',');
 		getline(characterFile, upSpecial, ',');
-		getline(characterFile, downSpecial, ',');
+		getline(characterFile, downSpecial);
 		Fighter fighter(name, neutralSpecial, sideSpecial, upSpecial, downSpecial, num);
 		tree.insert(tree.getRoot(), fighter);
 		hashMap.Insert(fighter);
