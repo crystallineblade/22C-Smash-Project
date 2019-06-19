@@ -373,14 +373,12 @@ Node<T>* LinkedList<T>::getNode(int pos) {
 
 /*
 Pseudocode:
-
 Declare a pointer to node of generic type U and set it to the node after head
 loop (when pointer is not null to go through entire list)
 	Send node data to output stream
 	Set pointer to next node
 end loop
 return output stream
-
 */
 template <typename U>
 std::ostream &operator<<(std::ostream& output, LinkedList<U>& l) {

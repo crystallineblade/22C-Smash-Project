@@ -41,42 +41,74 @@ void importDataFromFile(string fileName) {
 		tree.insert(tree.getRoot(), fighter);
 		hashMap.Insert(fighter);
 		list.insertLast(fighter);
+		characterCount++;
+	}
+}
+
+void printMenu()
+{
+	cout << endl << "Print Menu" << endl << "====================" << endl;
+	cout << "[1] Alphabetical" << endl;
+	cout << "[2] Indented" << endl;
+	cout << "[3] IDK DO WE HAVE A THIRD?" << endl;
+
+	int choice;
+	cin >> choice;
+	switch (choice) {
+	case 1:
+		cout;
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+
+	default:
+		break;
 	}
 }
 
 int main()
 {
-	cout << "What option would you like to pick?" << endl;
-	cout << "[1] Add" << endl;
-	cout << "[2] Delete" << endl;
-	cout << "[3] Search" << endl;
-	cout << "[4] Print" << endl;
-	cout << "[5] Compare" << endl;
-	cout << "[6] End" << endl;
+	string filename;
+	bool isRunning = true;
 
-	int choice;
-	cin >> choice;
-	switch (choice) {
-	case 1: {
+	cout << "What file would you like to read from?";
+	cin >> filename;
 
-	}
-	case 2: {
+	importDataFromFile(filename);
 
-	}
-	case 3: {
+	while (isRunning)
+	{
+		cout << "What option would you like to pick?" << endl;
+		cout << "[1] Add" << endl;
+		cout << "[2] Delete" << endl;
+		cout << "[3] Search" << endl;
+		cout << "[4] Print" << endl;
+		cout << "[5] Compare" << endl;
+		cout << "[6] End" << endl;
 
-	}
-	case 4: {
-
-	}
-	case 5: {
-
-	}
-	case 6:{
-	}
-	default: {
-
-	}
+		int choice;
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			cout;
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			printMenu();
+			break;
+		case 5:
+			break;
+		case 6:
+			isRunning = false;
+			break;
+		default:
+			break;
+		}
 	}
 
 	system("pause");

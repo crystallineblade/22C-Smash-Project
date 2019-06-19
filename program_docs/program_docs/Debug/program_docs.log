@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\DeadlyLaug\source\repos\22C-Smash-Project\program_docs\program_docs\HashTable.h(31,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\DeadlyLaug\source\repos\22C-Smash-Project\program_docs\program_docs\HashTable.h(35,20): warning C4018:  '<': signed/unsigned mismatch
+  program_docs.vcxproj -> C:\Users\DeadlyLaug\source\repos\22C-Smash-Project\program_docs\Debug\program_docs.exe

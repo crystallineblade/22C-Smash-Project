@@ -125,7 +125,7 @@ public:
 template <typename T>
 BSTNode<T>* BST<T>::newNode(T d) {
 	BSTNode<T>* newNode = new BSTNode<T>();
-	newNode->data = d;
+	newNode->data1 = d;
 	return newNode;
 }
 
@@ -146,7 +146,7 @@ void BST<T>::insert(BSTNode<T>* &curr, T data) {
 		curr = newNode(data);
 	}
 	else {
-		if (data < curr->data) {
+		if (data < curr->data1) {
 			insert(curr->left, data);
 		}
 		else {
@@ -163,10 +163,10 @@ else call search function using right node
 */
 template <typename T>
 BSTNode<T>* BST<T>::search(BSTNode <T>* curr, T data) {
-	if (curr == NULL || (curr->data == data)) {
+	if (curr == NULL || (curr->data1 == data)) {
 		return curr;
 	}
-	if (data < curr->data) {
+	if (data < curr->data1) {
 		return search(curr->left, data);
 	}
 	else {
@@ -202,10 +202,10 @@ return current node
 template <typename T>
 BSTNode<T>* BST<T>::remove(BSTNode <T>* curr, T data) {
 	if (curr == NULL) return curr;
-	if (data < curr->data) {
+	if (data < curr->data1) {
 		curr->left = remove(curr->left, data);
 	}
-	else if (data > curr->data) {
+	else if (data > curr->data1) {
 		curr->right = remove(curr->right, data);
 	}
 	else {
@@ -220,8 +220,8 @@ BSTNode<T>* BST<T>::remove(BSTNode <T>* curr, T data) {
 			return temp;
 		}
 		BSTNode<T>* temp = minValue(curr->right);
-		curr->data = temp->data
-		curr->right = remove(curr->right, temp->data);
+		curr->data1 = temp->data1;
+		curr->right = remove(curr->right, temp->data1);
 	}
 	return curr;
 }
@@ -242,7 +242,7 @@ call print function using right node
 template <typename T>
 void BST<T>::printPreOrder(std::ostream &output, BSTNode<T>* curr) {
 	if (curr == NULL) return;
-	output << curr->data << "\n";
+	output << curr->data1 << "\n";
 	printPreOrder(output, curr->left);
 	printPreOrder(output, curr->right);
 }
@@ -259,7 +259,7 @@ void BST<T>::printPostOrder(std::ostream &output, BSTNode<T>* curr) {
 	if (curr == NULL) return;
 	printPostOrder(output, curr->left);
 	printPostOrder(output, curr->right);
-	output << curr->data << "\n";
+	output << curr->data1 << "\n";
 }
 
 /*
@@ -273,7 +273,7 @@ template <typename T>
 void BST<T>::printInOrder(std::ostream &output, BSTNode<T>* curr) {
 	if (curr == NULL) return;
 	printInOrder(output, curr->left);
-	output << curr->data << "\n";
+	output << curr->data1 << "\n";
 	printInOrder(output, curr->right);
 }
 
@@ -310,7 +310,7 @@ void BST<T>::printGivenLevel(std::ostream &output, BSTNode<T> * curr, int level)
 	}
 	if (level == 1)
 	{
-		output << curr->data << "\n";
+		output << curr->data1 << "\n";
 	}
 	else if (level > 1)
 	{
