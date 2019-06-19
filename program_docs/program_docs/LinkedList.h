@@ -111,6 +111,8 @@ public:
 	*/
 	Node<T>* getNode(int pos);
 
+	void printList(std::ostream output);
+
 	/* This overloaded output stream operator send data from each node to the output stream.
 	Pre: output - ostream that the data is sent to
 		 l - LinkedList with generic datatype
@@ -119,8 +121,6 @@ public:
 	*/
 	template<typename U>
 	friend std::ostream &operator<<(std::ostream& output, LinkedList<U>& l);
-
-	
 };
 
 template <typename T>
@@ -393,10 +393,20 @@ std::ostream &operator<<(std::ostream& output, LinkedList<U>& l) {
 }
 
 template <typename T>
-Node<T>* search(T data) {
+Node<T>* LinkedList<T>::search(T data) {
 	int index = find(data);
 	remove(index);
 	insertFirst(data);
 	return head->next;
+}
+
+template <typename T>
+void LinkedList<T>::printList(std::ostream output) {
+	Node<T>* curr = head;
+	while (curr != NULL) {
+		output << curr->data;
+		curr = curr->next;
+		output << std::endl;
+	}
 }
 #endif

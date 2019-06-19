@@ -16,7 +16,9 @@ class HashMapTable {
       int HashFunc(Fighter data);
       void Insert(Fighter data);
       int SearchKey(Fighter data);
+	  HashTableEntry deleteNode(Fighter data);
       ~HashMapTable();
+	  void printHashTable(std::ostream output);
 };
 
 HashMapTable::HashMapTable() {
@@ -85,11 +87,38 @@ int HashMapTable::SearchKey(Fighter data) {
 	std::cout << "Invalid Data" << std::endl;
 	return 0;
 }
+
+HashTableEntry HashMapTable::deleteNode(Fighter data) {
+	int h = HashFunc(data);
+	if (Htable[h].data.name == "") {
+		throw "Fighter not in hash table.";
+	}
+	HashTableEntry node = Htable[h];
+	if (Htable[h].next != NULL) {
+		Htable[h] = *(Htable[h].next);
+	}
+	return node;
+}
+
 HashMapTable::~HashMapTable() {
 	Htable = nullptr;
 }
 int HashMapTable::getCollisions()
 {
 	return collisions;
+}
+
+void HashMapTable::printHashTable(std::ostream output) {
+	for (int i = 0; i < T_S; i++) {
+		if (Htable[i].data.name != "") {
+			HashTableEntry* node = new HashTableEntry;
+			node = &(Htable[i]);
+			while (node != NULL) {
+				output << "Hash key #" << i << ":" << std::endl;
+				output << (*node).data << std::endl;
+				node = (*node).next;
+			}
+		}
+	}
 }
 #endif

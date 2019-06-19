@@ -15,6 +15,11 @@ public:
 		this->key = 0;
 		next = NULL;
 	}
+	HashTableEntry(const HashTableEntry &entry) {
+		key = entry.key;
+		data = entry.data;
+		next = entry.next;
+	}
 	~HashTableEntry() {
 		delete next;
 		data.~Fighter();

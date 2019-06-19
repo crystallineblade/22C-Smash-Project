@@ -54,6 +54,31 @@ int main()
 	cout << "[5] Compare" << endl;
 	cout << "[6] End" << endl;
 
+	int choice;
+	cin >> choice;
+	switch (choice) {
+	case 1: {
+
+	}
+	case 2: {
+
+	}
+	case 3: {
+
+	}
+	case 4: {
+
+	}
+	case 5: {
+
+	}
+	case 6:{
+	}
+	default: {
+
+	}
+	}
+
 	system("pause");
 	return 0;
 }
