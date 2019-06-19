@@ -4,13 +4,28 @@
 
 struct Fighter {
 public:
+	//integer indicating Fighter's roster number
 	int rosterNumber;
+
+	//string for the Fighter's name
 	std::string name;
+
+	//string for the Fighter's neutral special
 	std::string neutralSpecial;
+
+	//string for the Fighter's side special
 	std::string sideSpecial;
+
+	//string for the Fighter's up special
 	std::string upSpecial;
+
+	//string for the Fighter's down special
 	std::string downSpecial;
 
+	/*
+	This default constructor initializes all the data for the fighters.
+	Post: rosterNumber is set to -1 and the string datas are empty.
+	*/
 	Fighter() {
 		rosterNumber = -1;
 		name = "";
@@ -20,6 +35,9 @@ public:
 		downSpecial = "";
 	}
 
+	/*
+	This constructor
+	*/
 	Fighter(std::string n, std::string ns, std::string ss, std::string us, std::string ds, int num) {
 		name = n;
 		neutralSpecial = ns;
@@ -29,6 +47,11 @@ public:
 		rosterNumber = num;
 	}
 
+
+	/*
+	This deconstructor deletes the data assigned to the object.
+	Post: Fighter object, with it's data, deleted
+	*/
 	~Fighter() {
 
 	}
