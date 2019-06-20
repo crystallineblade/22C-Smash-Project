@@ -31,18 +31,26 @@ void importDataFromFile(string fileName) {
 	string line;
 	int num = 0;
 	while (characterFile >> num) {
-		string name, upSpecial, neutralSpecial, downSpecial, sideSpecial;
+		string name, upSpecial, neutralSpecial, downSpecial, sideSpecial, series;
 		getline(characterFile, name, ',');
+		getline(characterFile, series, ',');
 		getline(characterFile, neutralSpecial, ',');
 		getline(characterFile, sideSpecial, ',');
 		getline(characterFile, upSpecial, ',');
 		getline(characterFile, downSpecial);
-		Fighter fighter(name, neutralSpecial, sideSpecial, upSpecial, downSpecial, num);
+		Fighter fighter(name, neutralSpecial, sideSpecial, upSpecial, downSpecial, num, series);
 		tree.insert(tree.getRoot(), fighter);
 		hashMap.Insert(fighter);
 		list.insertLast(fighter);
 		characterCount++;
 	}
+}
+
+void printWithIndent(std::ostream &output, BSTNode<Fighter>* curr, int indent) {
+	if (tree.height(curr) == 0) return;
+	printWithIndent(output, curr->left, indent + 1);
+	curr->data1.printWithIndent(output,indent);
+	printWithIndent(output, curr->right, indent + 1);
 }
 
 void printMenu()
@@ -114,3 +122,4 @@ int main()
 	system("pause");
 	return 0;
 }
+

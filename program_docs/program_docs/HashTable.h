@@ -1,3 +1,7 @@
+/* Originally written by Minchang Cai, altered by Julia Shuieh for the project
+   Comments written by Julia Shuieh
+*/
+
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 #include<string>
@@ -8,7 +12,7 @@ class HashMapTable {
    private:
       HashTableEntry *Htable;
 	  int collisions;
-	  const int T_S = 200;
+	  const int T_S = 100;
 
    public:
 	  int getCollisions();
@@ -18,7 +22,7 @@ class HashMapTable {
       int SearchKey(Fighter data);
 	  HashTableEntry deleteNode(Fighter data);
       ~HashMapTable();
-	  void printHashTable(std::ostream output);
+	  void printHashTable(std::ostream &output);
 };
 
 HashMapTable::HashMapTable() {
@@ -27,6 +31,7 @@ HashMapTable::HashMapTable() {
 }
 
 int HashMapTable::HashFunc(Fighter data) {
+	/*
 	std::string name = "";
 	for (int i = 0; i < data.name.size(); i++) {
 		name += tolower(data.name.at(i));
@@ -47,6 +52,8 @@ int HashMapTable::HashFunc(Fighter data) {
 		sum = sum / 10;
 	}
 	return index;
+	*/
+	return data.rosterNumber;
 }
 
 void HashMapTable::Insert(Fighter data) {
@@ -71,13 +78,16 @@ void HashMapTable::Insert(Fighter data) {
 }
 int HashMapTable::SearchKey(Fighter data) {
 	int h = HashFunc(data);
-	int j = 0;
 	HashTableEntry* node = new HashTableEntry;
 	node = &Htable[h];
 	while (node != NULL && (*node).data.name != "") {
 		if ((*node).data == data) {
 			std::cout << "Data found: " << std::endl;
 			std::cout << Htable[h].data << std::endl;
+			if (node->data != Htable[h].data) {
+				HashTableEntry newNode = Htable[h];
+				
+			}
 			return h;
 		}
 		else {
@@ -90,14 +100,27 @@ int HashMapTable::SearchKey(Fighter data) {
 
 HashTableEntry HashMapTable::deleteNode(Fighter data) {
 	int h = HashFunc(data);
+	HashTableEntry newNode;
 	if (Htable[h].data.name == "") {
 		throw "Fighter not in hash table.";
 	}
-	HashTableEntry node = Htable[h];
-	if (Htable[h].next != NULL) {
-		Htable[h] = *(Htable[h].next);
+	if (Htable[h].data == data) {
+		HashTableEntry removedNode = Htable[h];
+		Htable[h] = newNode;
+		return removedNode;
 	}
-	return node;
+	else {
+		HashTableEntry *node = &(Htable[h]);
+		while (node->next != NULL) {
+			if ((node->next)->data == data) {
+				HashTableEntry removedNode = *(node->next);
+				node->next = (node->next)->next;
+				return removedNode;
+			}
+		}
+		throw "Fighter not in hash table.";
+	}
+	return newNode;
 }
 
 HashMapTable::~HashMapTable() {
@@ -108,7 +131,7 @@ int HashMapTable::getCollisions()
 	return collisions;
 }
 
-void HashMapTable::printHashTable(std::ostream output) {
+void HashMapTable::printHashTable(std::ostream &output) {
 	for (int i = 0; i < T_S; i++) {
 		if (Htable[i].data.name != "") {
 			HashTableEntry* node = new HashTableEntry;
