@@ -79,14 +79,15 @@ void HashMapTable::Insert(Fighter data) {
 int HashMapTable::SearchKey(Fighter data) {
 	int h = HashFunc(data);
 	HashTableEntry* node = new HashTableEntry;
-	node = &Htable[h];
+	node = &(Htable[h]);
 	while (node != NULL && (*node).data.name != "") {
 		if ((*node).data == data) {
 			std::cout << "Data found: " << std::endl;
 			std::cout << Htable[h].data << std::endl;
 			if (node->data != Htable[h].data) {
-				HashTableEntry newNode = Htable[h];
-				
+				HashTableEntry removedNode = deleteNode(data);
+				removedNode.next = &(Htable[h]);
+				Htable[h] = removedNode;
 			}
 			return h;
 		}
@@ -94,7 +95,7 @@ int HashMapTable::SearchKey(Fighter data) {
 			node = (*node).next;
 		}
 	}
-	std::cout << "Invalid Data" << std::endl;
+	throw "Invalid data.";
 	return 0;
 }
 

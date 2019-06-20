@@ -20,7 +20,7 @@ using namespace std;
 int characterCount = 0;
 BST<Fighter> tree;
 HashMapTable hashMap;
-LinkedList<Fighter> list;
+LinkedList<LinkedList<Fighter>> list;
 
 void importDataFromFile(string fileName) {
 	ifstream characterFile(fileName);
@@ -41,7 +41,18 @@ void importDataFromFile(string fileName) {
 		Fighter fighter(name, neutralSpecial, sideSpecial, upSpecial, downSpecial, num, series);
 		tree.insert(tree.getRoot(), fighter);
 		hashMap.Insert(fighter);
-		list.insertLast(fighter);
+		
+		bool foundSeries = false;
+		for (int i = 1; i <= list.getCount(); i++) {
+			if ((list.getData(i)).getListName() == series) {
+				list.getData(i).insertLast(fighter);
+			}
+		}
+		if (!foundSeries) {
+			LinkedList<Fighter> newList(series);
+			newList.insertFirst(fighter);
+			list.insertFirst(newList);
+		}
 		characterCount++;
 	}
 }

@@ -16,6 +16,8 @@ private:
 	int count;
 	// Node<T> pointer for head pointer, which points to the first data node
 	Node<T> *head;
+
+	std::string name;
 public:
 	/* 
 	This default constructor initializes LinkedList. It defines count to be 0 and the head pointer points to NULL.
@@ -26,6 +28,9 @@ public:
 	This copy constructor initialized LinkedList using an existing LinkedList.
 	*/
 	LinkedList(const LinkedList<T> &l);
+
+
+	LinkedList(std::string n);
 
 	/*
 	This deconstructor frees each node pointer from memory.
@@ -85,7 +90,7 @@ public:
 	*/
 	int find(T d);
 
-	Node<T>* search(T d);
+	int search(T d);
 
 	/* This function removes all nodes in the list (except for the head node).
 	Post: all Node<T> objects following the head node are removed from the list.
@@ -124,6 +129,11 @@ public:
 	*/
 	template<typename U>
 	friend std::ostream &operator<<(std::ostream& output, LinkedList<U>& l);
+
+	friend bool operator== (const LinkedList<T> &l1, const LinkedList<T> &l2);
+
+	std::string getListName();
+
 };
 
 template <typename T>
@@ -137,6 +147,14 @@ template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T> &l) {
 	count = l.count;
 	head = l.head;
+}
+
+template <typename T>
+LinkedList<T>::LinkedList(std::string n) {
+	name = n;
+	count = 0;
+	head = newNode(T());
+	head->next = NULL;
 }
 
 template <typename T>
@@ -394,11 +412,12 @@ std::ostream &operator<<(std::ostream& output, LinkedList<U>& l) {
 }
 
 template <typename T>
-Node<T>* LinkedList<T>::search(T data) {
+int LinkedList<T>::search(T data) {
 	int index = find(data);
+	if (index == -1) return -1;
 	remove(index);
 	insertFirst(data);
-	return head->next;
+	return 1;
 }
 
 template <typename T>
@@ -409,5 +428,16 @@ void LinkedList<T>::printList(std::ostream output) {
 		curr = curr->next;
 		output << std::endl;
 	}
+}
+
+template <typename T>
+std::string LinkedList<T>::getListName() {
+	return name;
+}
+
+template <typename T>
+bool operator== (const LinkedList<T> &l1, const LinkedList<T> &l2) {
+	if (l1.name == l2.name) return true;
+	else return false;
 }
 #endif

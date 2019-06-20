@@ -41,6 +41,16 @@ public:
 		series = "";
 	}
 
+	Fighter(std::string n) {
+		name = n;
+		rosterNumber = -1;
+		neutralSpecial = "";
+		sideSpecial = "";
+		upSpecial = "";
+		downSpecial = "";
+		series = "";
+	}
+
 	/*
 	This constructor
 	*/

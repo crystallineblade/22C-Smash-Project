@@ -1,30 +1,30 @@
-1 Mario, Fireball, Cape, Super Jump Punch, F.L.U.D.D.
-2 Donkey Kong, Giant Punch, Headbutt, Spinning Kong, Hand Slap
-3 Link, Bow and Arrows, Boomerang, Spin Attack, Remote Bomb
-4 Samus, Charge Shot, Missile, Screw Attack, Bomb
-4 Dark Samus, Charge Shot, Missile, Screw Attack, Bomb
-5 Yoshi, Egg Lay, Egg Roll, Egg Throw, Yoshi Bomb
-6 Kirby, Inhale, Hammer Flip, Final Cutter, Stone
-7 Fox, Blaster, Fox Illusion, Fire Fox, Reflector
-8 Pikachu, Thunder Jolt, Skull Bash, Quick Attack, Thunder
-9 Luigi, Fireball, Green Missle, Super Jump Punch, Luigi Cyclone
-10 Ness, PK Flash, PK Fire, PK Thunder, PSI Magnet
-11 Captain Falcon, Falcon Punch, Raptor Boost, Falcon Dive, Falcon Kick
-12 Jigglypuff, Rollout, Pound, Sing, Rest
-13 Peach, Toad, Peach Bomber, Peach Parasol, Vegetable
-13 Daisy, Toad, Daisy Bomber, Daisy Parasol, Vegetable
-14 Bowser, Fire Breath, Flying Slam, Whirling Fortress, Bowser Bomb
-15 Ice Climbers, Ice Shot, Squall Hammer, Belay, Blizzard
-16 Sheik, Needle Storm, Burst Grenade, Vanish, Bouncing Fish
-17 Zelda, Nayru's Love, Din's Fire, Farore's Wind, Phantom Slash
-18 Dr. Mario, Megavitamins, Super Sheet, Super Jump Punch, Dr. Tornado
-19 Pichu, Thunder Jolt, Skull Bash, Agility, Thunder
-20 Falco, Blaster, Falco Phantasm, Fire Bird, Reflector
-21 Marth, Shield Breaker, Dancing Blade, Dolphin Slash, Counter
-21 Lucina, Shield Breaker, Dancing Blade, Dolphin Slash, Counter
-22 Young Link, Fire Arrow, Boomerang, Spin Attack, Bomb
-23 Ganondorf, Warlock Punch, Flame Chock, Dark Dive, Wizard's Foot
-24 Mewtwo, Shadow Ball, Confusion, Teleport, Disable
-25 Roy, Flare Blade, Double-Edge Dance, Blazer, Counter
-25 Chrom, Flare Blade, Double-Edge Dance, Soaring Slash, Counter
-26 Mr. Game & Watch, Chef, Judge, Fire, Oil Panic
+1 Mario, Mario, Fireball, Cape, Super Jump Punch, F.L.U.D.D.
+2 Donkey Kong, Mario, Giant Punch, Headbutt, Spinning Kong, Hand Slap
+3 Link, The Legend of Zelda, Arrows, Boomerang, Spin Attack, Remote Bomb
+4 Samus, Metroid, Charge Shot, Missile, Screw Attack, Bomb
+4 Dark Samus, Metroid Prime, Charge Shot, Missile, Screw Attack, Bomb
+5 Yoshi, Mario, Egg Lay, Egg Roll, Egg Throw, Yoshi Bomb
+6 Kirby, Kirby, Inhale, Hammer Flip, Final Cutter, Stone
+7 Fox, Star Fox, Blaster, Fox Illusion, Fire Fox, Reflector
+8 Pikachu, Pokemon, Thunder Jolt, Skull Bash, Quick Attack, Thunder
+9 Luigi, Mario, Fireball, Green Missle, Super Jump Punch, Luigi Cyclone
+10 Ness, EarthBound, PK Flash, PK Fire, PK Thunder, PSI Magnet
+11 Captain Falcon, F-Zero, Falcon Punch, Raptor Boost, Falcon Dive, Falcon Kick
+12 Jigglypuff, Pokemon, Rollout, Pound, Sing, Rest
+13 Peach, Mario, Toad, Peach Bomber, Peach Parasol, Vegetable
+13 Daisy, Mario, Toad, Daisy Bomber, Daisy Parasol, Vegetable
+14 Bowser, Mario, Fire Breath, Flying Slam, Whirling Fortress, Bowser Bomb
+15 Ice Climbers, Ice Climber, Ice Shot, Squall Hammer, Belay, Blizzard
+16 Sheik, The Legend of Zelda, Needle Storm, Burst Grenade, Vanish, Bouncing Fish
+17 Zelda, The Legend of Zelda, Nayru's Love, Din's Fire, Farore's Wind, Phantom Slash
+18 Dr. Mario, Mario, Megavitamins, Super Sheet, Super Jump Punch, Dr. Tornado
+19 Pichu, Pokemon, Thunder Jolt, Skull Bash, Agility, Thunder
+20 Falco, Star Fox, Blaster, Falco Phantasm, Fire Bird, Reflector
+21 Marth, Fire Emblem, Shield Breaker, Dancing Blade, Dolphin Slash, Counter
+21 Lucina, Fire Emblem, Shield Breaker, Dancing Blade, Dolphin Slash, Counter
+22 Young Link, The Legend of Zelda, Fire Arrow, Boomerang, Spin Attack, Bomb
+23 Ganondorf, The Legend of Zelda, Warlock Punch, Flame Chock, Dark Dive, Wizard's Foot
+24 Mewtwo, Pokemon, Shadow Ball, Confusion, Teleport, Disable
+25 Roy, Fire Emblem, Flare Blade, Double-Edge Dance, Blazer, Counter
+25 Chrom, Fire Emblem, Flare Blade, Double-Edge Dance, Soaring Slash, Counter
+26 Mr. Game & Watch, Game & Watch, Chef, Judge, Fire, Oil Panic

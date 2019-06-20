@@ -19,10 +19,10 @@ public:
 
 	/*
 	This default constructor sets the hash key to -1 and pointer for the next entry to NULL.
-	Post: key is set to -1 and next is NULL
+	Post: key is set to 0 and next is NULL
 	*/
 	HashTableEntry() {
-		this->key = -1;
+		this->key = 0;
 		next = NULL;
 	}
 
