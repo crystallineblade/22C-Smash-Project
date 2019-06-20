@@ -50,10 +50,10 @@ public:
 	}
 
 	/*
-	This default deconstructor 
+	This default deconstructor frees the memory of the pointer.
+	Post: the next pointer is deleted
 	*/
 	~HashTableEntry() {
 		delete next;
-		data.~Fighter();
 	}
 };

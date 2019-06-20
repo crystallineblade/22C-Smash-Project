@@ -123,8 +123,6 @@ public:
 	Return: integer representing height or number of levels in BST
 	*/
 	int height(BSTNode <T> * curr);
-
-	void printWithIndent(std::ostream &output, BSTNode<T> *curr, int indent);
 };
 
 template <typename T>

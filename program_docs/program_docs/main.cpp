@@ -5,6 +5,8 @@ Program Description: This project will be receiving data from the Super Smash Br
 This data will include characters' names and their four unique special moves. The program will be
 able to sort the data being entered, organize trees and lists when data is deleted,
 search for specified data, compare two data, and print out data in alphabetical or indented order.
+
+Main written mostly by Justin Quan, some written by Julia Shuieh
 */
 
 #include "BST.h"

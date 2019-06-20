@@ -13,6 +13,7 @@ public:
 	//string for the Fighter's name
 	std::string name;
 
+	// string for the series where the Fighter is from
 	std::string series;
 
 	//string for the Fighter's neutral special
@@ -41,6 +42,10 @@ public:
 		series = "";
 	}
 
+	/*
+	This constructor initializes the name of the Fighter with the entered string.
+	Post: name string is set to the entered string
+	*/
 	Fighter(std::string n) {
 		name = n;
 		rosterNumber = -1;
@@ -52,7 +57,8 @@ public:
 	}
 
 	/*
-	This constructor
+	This constructor initializes the data variables with the entered data
+	Post: all data variables are initialized
 	*/
 	Fighter(std::string n, std::string ns, std::string ss, std::string us, std::string ds, int num, std::string s) {
 		name = n;
@@ -64,6 +70,10 @@ public:
 		series = s;
 	}
 
+	/*
+	This copy constructor copies the data variables from the entered Fighter object.
+	Post: all data variables are initialized with the fighter data
+	*/
 	Fighter(const Fighter& f) {
 		name = f.name;
 		neutralSpecial = f.neutralSpecial;

@@ -90,6 +90,12 @@ public:
 	*/
 	int find(T d);
 
+	/*
+	This function searches for the specified data and self-adjusts to place the node to the front of the list. 
+	Pre: d - data of generic dat atype T that is searched for inside the list
+	Post: the node containing data d is placed in the front of hte list
+	Return: the position of the node containing data d (1), or -1 if not found
+	*/
 	int search(T d);
 
 	/* This function removes all nodes in the list (except for the head node).
@@ -411,6 +417,14 @@ std::ostream &operator<<(std::ostream& output, LinkedList<U>& l) {
 	return output;
 }
 
+/*
+Pseudocode:
+Get index from using find function
+return -1 if not found
+remove node 
+insert to the front
+return 1
+*/
 template <typename T>
 int LinkedList<T>::search(T data) {
 	int index = find(data);
@@ -420,6 +434,13 @@ int LinkedList<T>::search(T data) {
 	return 1;
 }
 
+/*
+Psuedocode:
+create pointer for node
+loop (through linked list)
+	print out node data
+end loop
+*/
 template <typename T>
 void LinkedList<T>::printList(std::ostream output) {
 	Node<T>* curr = head;
