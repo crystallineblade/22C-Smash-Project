@@ -48,12 +48,14 @@ bool importDataFromFile(string fileName) {
 		for (int i = 1; i <= list.getCount(); i++) {
 			if ((list.getData(i)).getListName() == series) {
 				list.getData(i).insertLast(fighter);
+				foundSeries = true;
 			}
 		}
 		if (!foundSeries) {
+			
 			LinkedList<Fighter> newList(series);
 			newList.insertFirst(fighter);
-			list.insertFirst(newList);
+			//list.insertFirst(newList);
 		}
 		characterCount++;
 	}
@@ -67,6 +69,10 @@ void printWithIndent(std::ostream &output, BSTNode<Fighter>* curr, int indent) {
 	printWithIndent(output, curr->right, indent + 1);
 }
 
+
+/*
+Still need to print
+*/
 void printMenu()
 {
 	cout << endl << "Print Menu" << endl << "====================" << endl;
@@ -84,8 +90,8 @@ void printMenu()
 		printWithIndent(cout, tree.getRoot(), 0);
 		break;
 	case 3:
-		break;
 
+		break;
 	default:
 		break;
 	}
@@ -128,18 +134,13 @@ void addCharacter()
 	characterCount++;
 }
 
-/*
-CHANGE THIS BITCH
-*/
 void deleteCharacter()
 {
 	string charName;
-	string tString = "temp";
-	int tInt = 0;
 
 	cout << "What character would you like to delete? (Enter in character name): ";
 	cin >> charName;
-	Fighter temp(charName, tString, tString, tString, tString, tInt, tString);
+	Fighter temp(charName);
 
 	Fighter f = tree.remove(tree.getRoot(), temp)->data1;
 	hashMap.deleteNode(temp);
@@ -155,10 +156,19 @@ void deleteCharacter()
 	}
 }
 
+void searchCharacter()
+{
+	string charName;
+
+	cout << "What is the name of the character you would like to search for? ";
+	cin >> charName;
+	Fighter search(charName);
+	hashMap.SearchKey(search);
+}
+
 int main()
 {
-	string filename, choiceThree, charName;;
-	int rNumber;
+	string filename, choiceThree;
 	bool isRunning = true;
 	bool fileWorks = false;
 
@@ -191,16 +201,8 @@ int main()
 		case 2:
 			deleteCharacter();
 			break;
-
-		/*
-		I NEED HELP BABEEEEEEE LOVE YOU BTW
-		*/
 		case 3:
-			cout << "What is the name of the character you would like to search for? ";
-			cin >> charName;
-			cout << "What is the roster number of the character you would like to search for? ";
-			cin >> rNumber;
-			
+			searchCharacter();
 			break;
 		case 4:
 			printMenu();
