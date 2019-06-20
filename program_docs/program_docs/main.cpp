@@ -42,6 +42,7 @@ void importDataFromFile(string fileName) {
 		tree.insert(tree.getRoot(), fighter);
 		hashMap.Insert(fighter);
 		list.insertLast(fighter);
+		characterCount++;
 	}
 }
 
@@ -52,40 +53,70 @@ void printWithIndent(std::ostream &output, BSTNode<Fighter>* curr, int indent) {
 	printWithIndent(output, curr->right, indent + 1);
 }
 
-
-int main()
+void printMenu()
 {
-	cout << "What option would you like to pick?" << endl;
-	cout << "[1] Add" << endl;
-	cout << "[2] Delete" << endl;
-	cout << "[3] Search" << endl;
-	cout << "[4] Print" << endl;
-	cout << "[5] Compare" << endl;
-	cout << "[6] End" << endl;
+	cout << endl << "Print Menu" << endl << "====================" << endl;
+	cout << "[1] Alphabetical" << endl;
+	cout << "[2] Indented" << endl;
+	cout << "[3] IDK DO WE HAVE A THIRD?" << endl;
 
 	int choice;
 	cin >> choice;
 	switch (choice) {
-	case 1: {
+	case 1:
+		cout;
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
 
+	default:
+		break;
 	}
-	case 2: {
+}
 
-	}
-	case 3: {
+int main()
+{
+	string filename;
+	bool isRunning = true;
 
-	}
-	case 4: {
+	cout << "What file would you like to read from?";
+	cin >> filename;
 
-	}
-	case 5: {
+	importDataFromFile(filename);
 
-	}
-	case 6:{
-	}
-	default: {
+	while (isRunning)
+	{
+		cout << "What option would you like to pick?" << endl;
+		cout << "[1] Add" << endl;
+		cout << "[2] Delete" << endl;
+		cout << "[3] Search" << endl;
+		cout << "[4] Print" << endl;
+		cout << "[5] Compare" << endl;
+		cout << "[6] End" << endl;
 
-	}
+		int choice;
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			cout;
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			printMenu();
+			break;
+		case 5:
+			break;
+		case 6:
+			isRunning = false;
+			break;
+		default:
+			break;
+		}
 	}
 
 	system("pause");

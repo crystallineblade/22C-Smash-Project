@@ -63,13 +63,44 @@ public:
 
 	}
 
+	/* This overloaded operator compares two Fighter objects.
+	Pre: f1 - Fighter object for the first fighter
+		 f2 - Fighter object of the second fighter
+	Return: true if f1 and f2 are equal
+	*/
 	friend bool operator== (const Fighter &f1, const Fighter &f2);
+
+	/* This overloaded operator compares two Fighter objects.
+	Pre: f1 - Fighter object for the first fighter
+		 f2 - Fighter object of the second fighter
+	Return: true if f1 and f2 are NOT equal
+	*/
     friend bool operator!= (const Fighter &f1, const Fighter &f2);
+
+	/* This overloaded operator compares two Fighter objects.
+	Pre: f1 - Fighter object for the first fighter
+		 f2 - Fighter object of the second fighter
+	Return: true if f1 is less than f2
+	*/
 	friend bool operator< (const Fighter &f1, const Fighter &f2);
+
+	/* This overloaded operator compares two Fighter objects.
+	Pre: f1 - Fighter object for the first fighter
+		 f2 - Fighter object of the second fighter
+	Return: true if f1 is greater than f2
+	*/
 	friend bool operator> (const Fighter &f1, const Fighter &f2);
+
+	/* This overloaded output stream operator send data from each node to the output stream.
+	Pre: out - ostream that the data is sent to
+		 f - Fighter with generic datatype
+	Post: out has the data from Fighter f
+	Return: ostream object
+	*/
 	friend std::ostream & operator << (std::ostream &out, const Fighter &f);
 
 	void printWithIndent(std::ostream &output, int numIndent);
+
 };
 
 bool operator==(const Fighter &f1, const Fighter &f2) {
