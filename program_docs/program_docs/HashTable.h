@@ -59,14 +59,14 @@ void HashMapTable::Insert(Fighter data) {
 	else if (Htable[h].data.name != "")
 	{
 		collisions++;
-		HashTableEntry** node = new HashTableEntry*;
-		node = &(Htable[h].next);
+		HashTableEntry* node = new HashTableEntry;
+		node = &(Htable[h]);
 		while (Htable[h].next != NULL)
 		{
-			node = &((*node)->next);
+			node = node->next;
 		}
 		HashTableEntry newNode(data, h);
-		(*node)->next = &newNode;
+		node->next = &newNode;
 	}
 }
 int HashMapTable::SearchKey(Fighter data) {
