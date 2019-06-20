@@ -22,7 +22,7 @@ using namespace std;
 int characterCount = 0;
 BST<Fighter> tree;
 HashMapTable hashMap;
-LinkedList<LinkedList<Fighter>> list;
+LinkedList<LinkedList<Fighter>*> list;
 
 bool importDataFromFile(string fileName) {
 	ifstream characterFile(fileName);
@@ -46,16 +46,17 @@ bool importDataFromFile(string fileName) {
 		
 		bool foundSeries = false;
 		for (int i = 1; i <= list.getCount(); i++) {
-			if ((list.getData(i)).getListName() == series) {
-				list.getData(i).insertLast(fighter);
+			if ((*list.getData(i)).getListName() == series) {
+				(*list.getData(i)).insertLast(fighter);
 				foundSeries = true;
 			}
 		}
 		if (!foundSeries) {
-			
+			LinkedList<Fighter>* pointer = new LinkedList<Fighter>;
 			LinkedList<Fighter> newList(series);
 			newList.insertFirst(fighter);
-			//list.insertFirst(newList);
+			pointer = &newList;
+			list.insertFirst(pointer);
 		}
 		characterCount++;
 	}
@@ -122,14 +123,16 @@ void addCharacter()
 	hashMap.Insert(newFighter);
 	bool foundSeries = false;
 	for (int i = 1; i <= list.getCount(); i++) {
-		if ((list.getData(i)).getListName() == series) {
-			list.getData(i).insertLast(newFighter);
+		if ((*list.getData(i)).getListName() == series) {
+			(*list.getData(i)).insertLast(newFighter);
 		}
 	}
 	if (!foundSeries) {
+		LinkedList<Fighter>* pointer = new LinkedList<Fighter>;
 		LinkedList<Fighter> newList(series);
 		newList.insertFirst(newFighter);
-		list.insertFirst(newList);
+		pointer = &newList;
+		list.insertFirst(pointer);
 	}
 	characterCount++;
 }
@@ -145,10 +148,10 @@ void deleteCharacter()
 	Fighter f = tree.remove(tree.getRoot(), temp)->data1;
 	hashMap.deleteNode(temp);
 	for (int i = 1; i <= list.getCount(); i++) {
-		if (list.getData(i).getListName() == f.series) {
-			int index = list.getData(i).search(f);
-			list.getData(i).remove(index);
-			if (list.getData(i).getCount() == 0) {
+		if ((*list.getData(i)).getListName() == f.series) {
+			int index = (*list.getData(i)).search(f);
+			(*list.getData(i)).remove(index);
+			if ((*list.getData(i)).getCount() == 0) {
 				list.remove(i);
 				break;
 			}
