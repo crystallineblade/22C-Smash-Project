@@ -1,3 +1,6 @@
+/* Written by Justin Quan and Julia Shuieh
+*/
+
 #pragma once
 #include <iostream>
 #include "BSTNode.h"
@@ -120,6 +123,8 @@ public:
 	Return: integer representing height or number of levels in BST
 	*/
 	int height(BSTNode <T> * curr);
+
+	void printWithIndent(std::ostream &output, BSTNode<T> *curr, int indent);
 };
 
 template <typename T>
@@ -348,3 +353,4 @@ int BST<T>::height(BSTNode <T> * curr)
 		}
 	}
 }
+

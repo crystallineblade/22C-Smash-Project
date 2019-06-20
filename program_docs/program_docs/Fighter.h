@@ -1,3 +1,6 @@
+/* Written by Julia Shuieh
+*/
+
 #pragma once
 #include <string>
 #include <iostream>
@@ -9,6 +12,8 @@ public:
 
 	//string for the Fighter's name
 	std::string name;
+
+	std::string series;
 
 	//string for the Fighter's neutral special
 	std::string neutralSpecial;
@@ -33,18 +38,20 @@ public:
 		sideSpecial = "";
 		upSpecial = "";
 		downSpecial = "";
+		series = "";
 	}
 
 	/*
 	This constructor
 	*/
-	Fighter(std::string n, std::string ns, std::string ss, std::string us, std::string ds, int num) {
+	Fighter(std::string n, std::string ns, std::string ss, std::string us, std::string ds, int num, std::string s) {
 		name = n;
 		neutralSpecial = ns;
 		sideSpecial = ss;
 		upSpecial = us;
 		downSpecial = ds;
 		rosterNumber = num;
+		series = s;
 	}
 
 
@@ -61,7 +68,8 @@ public:
 	friend bool operator< (const Fighter &f1, const Fighter &f2);
 	friend bool operator> (const Fighter &f1, const Fighter &f2);
 	friend std::ostream & operator << (std::ostream &out, const Fighter &f);
-	friend std::istream & operator >> (std::istream &in, Fighter &f);
+
+	void printWithIndent(std::ostream &output, int numIndent);
 };
 
 bool operator==(const Fighter &f1, const Fighter &f2) {
@@ -80,16 +88,19 @@ bool operator> (const Fighter &f1, const Fighter &f2) {
 	return f2.name > f2.name;
 }
 
+void Fighter::printWithIndent(std::ostream &output, int numIndent) {
+
+	for (int i = 0; i < numIndent; i++) {
+		output << "\t";
+	}
+	output << "#" << rosterNumber << " - " << name << std::endl;
+}
+
 std::ostream & operator << (std::ostream &out, const Fighter &f) {
-	out << "#" << f.rosterNumber << " - " << f.name << std::endl;
+	out << "#" << f.rosterNumber << " - " << f.name << " - " << f.series << std::endl;
 	out << f.neutralSpecial << std::endl;
 	out << f.upSpecial << std::endl;
 	out << f.sideSpecial << std::endl;
 	out << f.downSpecial << std::endl;
 	return out;
-}
-
-std::istream & operator >> (std::istream &in, Fighter &f) {
-	in >> f.rosterNumber >> f.name >> f.neutralSpecial >> f.sideSpecial >> f.upSpecial >> f.downSpecial;
-	return in;
 }

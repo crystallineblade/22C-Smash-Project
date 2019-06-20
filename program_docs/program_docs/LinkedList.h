@@ -1,3 +1,6 @@
+/* Written by Justin Quan and Julia Shuieh
+*/
+
 #pragma once
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H

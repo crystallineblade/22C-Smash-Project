@@ -1,3 +1,6 @@
+/* Written by Justin Quan
+*/
+
 #pragma once
 
 template <typename T>
