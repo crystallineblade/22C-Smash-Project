@@ -22,11 +22,11 @@ BST<Fighter> tree;
 HashMapTable hashMap;
 LinkedList<LinkedList<Fighter>> list;
 
-void importDataFromFile(string fileName) {
+bool importDataFromFile(string fileName) {
 	ifstream characterFile(fileName);
 	if (!characterFile.is_open()) {
 		cout << "Invalid file. Please try again." << endl;
-		return;
+		return false;
 	}
 	string line;
 	int num = 0;
@@ -55,6 +55,7 @@ void importDataFromFile(string fileName) {
 		}
 		characterCount++;
 	}
+	return true;
 }
 
 void printWithIndent(std::ostream &output, BSTNode<Fighter>* curr, int indent) {
@@ -69,7 +70,7 @@ void printMenu()
 	cout << endl << "Print Menu" << endl << "====================" << endl;
 	cout << "[1] Alphabetical" << endl;
 	cout << "[2] Indented" << endl;
-	cout << "[3] IDK DO WE HAVE A THIRD?" << endl;
+	cout << "[3] Key" << endl;
 
 	int choice;
 	cin >> choice;
@@ -78,6 +79,7 @@ void printMenu()
 		cout;
 		break;
 	case 2:
+		printWithIndent(cout, tree.getRoot(), 0);
 		break;
 	case 3:
 		break;
@@ -87,15 +89,66 @@ void printMenu()
 	}
 }
 
+void addCharacter()
+{
+	string name, nSpecial, sSpecial, uSpecial, dSpecial, series;
+	int rosterNum;
+
+	cout << "Character name: ";
+	cin >> name;
+	cout << "Character neutral special: ";
+	cin >> nSpecial;
+	cout << "Character side special: ";
+	cin >> sSpecial;
+	cout << "Character up special: ";
+	cin >> uSpecial;
+	cout << "Character down special: ";
+	cin >> dSpecial;
+	cout << "Character roster number: ";
+	cin >> rosterNum;
+	cout << "Character series: ";
+	cin >> series;
+
+	Fighter newFighter(name, nSpecial, sSpecial, uSpecial, dSpecial, rosterNum, series);
+	tree.insert(tree.getRoot(), newFighter);
+	hashMap.Insert(newFighter);
+	list.insertLast(newFighter);
+	characterCount++;
+}
+
+/*
+CHANGE THIS BITCH
+*/
+void deleteCharacter()
+{
+	string charName;
+	string tString = "temp";
+	int tInt = 0;
+
+	cout << "What character would you like to delete? (Enter in character name): ";
+	cin >> charName;
+	Fighter temp(charName, tString, tString, tString, tString, tInt, tString);
+
+	tree.remove(tree.getRoot(), temp);
+}
+
 int main()
 {
-	string filename;
+	string filename, choiceThree, charName;;
+	int rNumber;
 	bool isRunning = true;
+	bool fileWorks = false;
 
-	cout << "What file would you like to read from?";
-	cin >> filename;
+	while (!fileWorks)
+	{
+		cout << "What file would you like to read from? ";
+		cin >> filename;
 
-	importDataFromFile(filename);
+		if (importDataFromFile(filename))
+		{
+			fileWorks = true;
+		}
+	}
 
 	while (isRunning)
 	{
@@ -104,25 +157,32 @@ int main()
 		cout << "[2] Delete" << endl;
 		cout << "[3] Search" << endl;
 		cout << "[4] Print" << endl;
-		cout << "[5] Compare" << endl;
-		cout << "[6] End" << endl;
+		cout << "[5] End" << endl;
 
 		int choice;
 		cin >> choice;
 		switch (choice) {
 		case 1:
-			cout;
+			addCharacter();
 			break;
 		case 2:
+			deleteCharacter();
 			break;
+
+		/*
+		I NEED HELP BABEEEEEEE LOVE YOU BTW
+		*/
 		case 3:
+			cout << "What is the name of the character you would like to search for? ";
+			cin >> charName;
+			cout << "What is the roster number of the character you would like to search for? ";
+			cin >> rNumber;
+			
 			break;
 		case 4:
 			printMenu();
 			break;
 		case 5:
-			break;
-		case 6:
 			isRunning = false;
 			break;
 		default:
