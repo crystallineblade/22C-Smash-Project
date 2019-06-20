@@ -13,16 +13,24 @@ class HashMapTable {
       HashTableEntry *Htable;
 	  int collisions;
 	  const int T_S = 100;
-
+	  int count = 0;
+	  int currentSize = T_S;
+	  const double loadFactor = 0.75;
+	  
+	  
    public:
+	  
 	  int getCollisions();
       HashMapTable();
+	  void rehash();
       int HashFunc(Fighter data);
       void Insert(Fighter data);
       int SearchKey(Fighter data);
 	  HashTableEntry deleteNode(Fighter data);
       ~HashMapTable();
 	  void printHashTable(std::ostream &output);
+	  int longestList();
+	  double averageListLength();
 };
 
 HashMapTable::HashMapTable() {
@@ -75,6 +83,7 @@ void HashMapTable::Insert(Fighter data) {
 		HashTableEntry newNode(data, h);
 		node->next = &newNode;
 	}
+	count++;
 }
 int HashMapTable::SearchKey(Fighter data) {
 	int h = HashFunc(data);
@@ -98,7 +107,16 @@ int HashMapTable::SearchKey(Fighter data) {
 	throw "Invalid data.";
 	return 0;
 }
-
+void HashMapTable::rehash() {
+	if (count >= currentSize * loadFactor) {
+		HashTableEntry* arr = new HashTableEntry[currentSize + T_S];
+		for (int i = 0; i < currentSize; i++) {
+			arr[i] = Htable[i];
+		}
+		Htable = arr;
+		currentSize += T_S;
+	}
+}
 HashTableEntry HashMapTable::deleteNode(Fighter data) {
 	int h = HashFunc(data);
 	HashTableEntry newNode;
@@ -144,5 +162,37 @@ void HashMapTable::printHashTable(std::ostream &output) {
 			}
 		}
 	}
+}
+
+int HashMapTable::longestList() {
+	int longest = 1;
+	for (int i = 0; i < currentSize; i++) {
+		int current = 1;
+		if(Htable[i].data.name != "" && Htable[i].next != NULL) {
+			HashTableEntry* node = &Htable[i];
+			while (node->next != NULL) {
+				current++;
+				node = node->next;
+			}
+			if (current > longest) longest = current;
+		}
+	}
+	return longest;
+}
+
+double HashMapTable::averageListLength() {
+	double total = 0;
+	for (int i = 0; i < currentSize; i++) {
+		int current = 1;
+		if (Htable[i].data.name != "" && Htable[i].next != NULL) {
+			HashTableEntry* node = &Htable[i];
+			while (node->next != NULL) {
+				current++;
+				node = node->next;
+			}
+		}
+		total += current;
+	}
+	return total / count;
 }
 #endif

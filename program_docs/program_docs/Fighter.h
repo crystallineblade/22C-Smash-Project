@@ -64,6 +64,15 @@ public:
 		series = s;
 	}
 
+	Fighter(const Fighter& f) {
+		name = f.name;
+		neutralSpecial = f.neutralSpecial;
+		sideSpecial = f.sideSpecial;
+		upSpecial = f.upSpecial;
+		downSpecial = f.downSpecial;
+		rosterNumber = f.rosterNumber;
+		series = f.series;
+	}
 
 	/*
 	This deconstructor deletes the data assigned to the object.

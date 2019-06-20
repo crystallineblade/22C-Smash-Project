@@ -112,7 +112,17 @@ void addCharacter()
 	Fighter newFighter(name, nSpecial, sSpecial, uSpecial, dSpecial, rosterNum, series);
 	tree.insert(tree.getRoot(), newFighter);
 	hashMap.Insert(newFighter);
-	list.insertLast(newFighter);
+	bool foundSeries = false;
+	for (int i = 1; i <= list.getCount(); i++) {
+		if ((list.getData(i)).getListName() == series) {
+			list.getData(i).insertLast(newFighter);
+		}
+	}
+	if (!foundSeries) {
+		LinkedList<Fighter> newList(series);
+		newList.insertFirst(newFighter);
+		list.insertFirst(newList);
+	}
 	characterCount++;
 }
 
@@ -129,7 +139,18 @@ void deleteCharacter()
 	cin >> charName;
 	Fighter temp(charName, tString, tString, tString, tString, tInt, tString);
 
-	tree.remove(tree.getRoot(), temp);
+	Fighter f = tree.remove(tree.getRoot(), temp)->data1;
+	hashMap.deleteNode(temp);
+	for (int i = 1; i <= list.getCount(); i++) {
+		if (list.getData(i).getListName() == f.series) {
+			int index = list.getData(i).search(f);
+			list.getData(i).remove(index);
+			if (list.getData(i).getCount() == 0) {
+				list.remove(i);
+				break;
+			}
+		}
+	}
 }
 
 int main()
